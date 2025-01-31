@@ -5,15 +5,15 @@ import NameModal from "./NameModal";
 import Congratulations from "./Congratulations";
 import JSConfetti from "js-confetti";
 import { RiResetLeftFill } from "react-icons/ri";
-import { GiAnimalSkull } from "react-icons/gi";
 import backgroundImage from "./assets/img/5371964.jpg";
+import title from "./assets/img/titulo.png";
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [errors, setErrors] = useState(0);
-  const [successes, setSuccesses] = useState(0);
+  const [matches, setMatches] = useState(0);
   const [username, setUsername] = useState(localStorage.getItem("username") || "");
   const [showModal, setShowModal] = useState(!username);
   const [showCongrats, setShowCongrats] = useState(false);
@@ -53,7 +53,7 @@ const MemoryGame = () => {
       const [firstIndex, secondIndex] = newFlippedCards;
       if (cards[firstIndex].url === cards[secondIndex].url) {
         setMatchedCards([...matchedCards, firstIndex, secondIndex]);
-        setSuccesses(successes + 1);
+        setMatches(matches + 1);
       } else {
         setErrors(errors + 1);
       }
@@ -88,14 +88,12 @@ const MemoryGame = () => {
   return (
     <>
       <div className="min-h-screen w-full flex flex-col items-center p-4 bg-cover bg-fixed bg-no-repeat" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: "100% 100%" }}>
-        <div 
-          className="flex font-bold  text-yellow-300 drop-shadow-[3px_3px_0px_#a64d00] text-3xl md:text-7xl">
-          <h1>Memory Animal Game</h1>
-          <GiAnimalSkull/>
+        <div className="flex items-center justify-center">
+          <img src={title} alt="title" class="w-[90%] md:w-1/4" />
         </div>
         <Scoreboard 
           errors={errors} 
-          successes={successes}
+          matches={matches}
           username={username}
         />
         <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
@@ -110,12 +108,11 @@ const MemoryGame = () => {
         </div>
         {showModal && <NameModal setUsername={setUsername} setShowModal={setShowModal} />}
         {showCongrats && <Congratulations username={username} />}
-        <button 
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded flex items-center justify-center"
-          onClick={resetGame} 
+        <button
+          className="fixed top-0 right-0 mt-4 mr-4 bg-red-500 text-white p-3 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+          onClick={resetGame}
         >
-          <RiResetLeftFill className="mr-3" />
-          Reset Game
+          <RiResetLeftFill className="text-xl" />
         </button>
       </div>
     </>

@@ -11,7 +11,7 @@ const Card = ({ card, onClick, flipped }) => {
           flipped ? "rotate-y-180" : ""
         }`}
       >
-        <div className="card-front absolute w-full h-full bg-blue-400 flex items-center justify-center border rounded-lg backface-hidden">
+        <div className="card-front absolute w-full h-full bg-[#cc7a37] flex items-center justify-center border rounded-lg backface-hidden">
           {/* <span className="text-white text-3xl font-bold">?</span> */}
           <GiAnimalSkull className="text-white text-3xl font-bold" />
         </div>
