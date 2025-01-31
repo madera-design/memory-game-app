@@ -5,6 +5,8 @@ import NameModal from "./NameModal";
 import Congratulations from "./Congratulations";
 import JSConfetti from "js-confetti";
 import { RiResetLeftFill } from "react-icons/ri";
+import { GiAnimalSkull } from "react-icons/gi";
+import backgroundImage from "./assets/img/5371964.jpg";
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
@@ -41,7 +43,7 @@ const MemoryGame = () => {
   };
 
   const handleCardClick = (index) => {
-    if (flippedCards.length === 2 || matchedCards.includes(index)) return;
+    if (flippedCards.length === 2 || matchedCards.includes(index) || isChecking) return;
 
     const newFlippedCards = [...flippedCards, index];
     setFlippedCards(newFlippedCards);
@@ -85,8 +87,12 @@ const MemoryGame = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
-        <h1 className="text-2xl font-bold">Memory Animal Game</h1>
+      <div className="min-h-screen w-full flex flex-col items-center p-4 bg-cover bg-fixed bg-no-repeat" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: "100% 100%" }}>
+        <div 
+          className="flex font-bold  text-yellow-300 drop-shadow-[3px_3px_0px_#a64d00] text-3xl md:text-7xl">
+          <h1>Memory Animal Game</h1>
+          <GiAnimalSkull/>
+        </div>
         <Scoreboard 
           errors={errors} 
           successes={successes}

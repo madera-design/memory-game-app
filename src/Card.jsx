@@ -1,7 +1,9 @@
+import { GiAnimalSkull } from "react-icons/gi";
+
 const Card = ({ card, onClick, flipped }) => {
   return (
     <div
-      className="card w-20 h-20 md:w-24 md:h-24 cursor-pointer perspective"
+      className="card w-20 h-20 md:w-24 md:h-24 cursor-pointer perspective shadow-lg"
       onClick={onClick}
     >
       <div
@@ -10,7 +12,8 @@ const Card = ({ card, onClick, flipped }) => {
         }`}
       >
         <div className="card-front absolute w-full h-full bg-blue-400 flex items-center justify-center border rounded-lg backface-hidden">
-          <span className="text-white text-2xl font-bold">?</span>
+          {/* <span className="text-white text-3xl font-bold">?</span> */}
+          <GiAnimalSkull className="text-white text-3xl font-bold" />
         </div>
         <div className="card-back absolute w-full h-full bg-white flex items-center justify-center border rounded-lg backface-hidden transform rotate-y-180">
           <img src={card.url} alt="Animal" className="w-full h-full object-cover rounded-lg" />
