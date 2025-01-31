@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
+import { IoGameControllerOutline } from "react-icons/io5";
 
 const NameModal = ({ setUsername, setShowModal }) => {
   const [name, setName] = useState("");
@@ -20,12 +21,14 @@ const NameModal = ({ setUsername, setShowModal }) => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="border p-2 w-full mb-4 rounded"
+        placeholder="Your name"
       />
       <button 
-        className="bg-blue-500 text-white px-4 py-2 rounded w-full"
+        className="bg-blue-500 text-white py-2 rounded w-full flex items-center justify-center"
         onClick={handleSave} 
       >
-        Save
+        Let's play
+        <IoGameControllerOutline className="ml-3" />
       </button>
     </div>
   </div>

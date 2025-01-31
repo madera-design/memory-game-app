@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
-import Score from "./Score";
+import Scoreboard from "./Scoreboard";
 import NameModal from "./NameModal";
 import Congratulations from "./Congratulations";
 import JSConfetti from "js-confetti";
+import { RiResetLeftFill } from "react-icons/ri";
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
@@ -62,9 +63,10 @@ const MemoryGame = () => {
     if (matchedCards.length === cards.length && cards.length > 0) {
       setShowCongrats(true);
       jsConfetti.addConfetti();
-      setTimeout(() => setShowCongrats(false), 5000);
+      setTimeout(() => setShowCongrats(false), 3000);
     }
   }, [matchedCards]);
+
 
   const resetGame = () => {
     setCards([]);
@@ -73,19 +75,19 @@ const MemoryGame = () => {
     setErrors(0);
     setSuccesses(0);
     setUsername("");
+    fetchImages();
     localStorage.removeItem("username");
     setShowModal(true);
-    fetchImages();
   };
 
   return (
     <>
       <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
-        <h1 className="text-2xl font-bold mb-4">Memory Game</h1>
-        <p className="mb-2 font-bold ">Player: {username}</p>
-        <Score 
+        <h1 className="text-2xl font-bold">Memory Animal Game</h1>
+        <Scoreboard 
           errors={errors} 
-          successes={successes} 
+          successes={successes}
+          username={username}
         />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {cards.map((card, index) => (
@@ -99,7 +101,13 @@ const MemoryGame = () => {
         </div>
         {showModal && <NameModal setUsername={setUsername} setShowModal={setShowModal} />}
         {showCongrats && <Congratulations username={username} />}
-        <button onClick={resetGame} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">Reset Game</button>
+        <button 
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded flex items-center justify-center"
+          onClick={resetGame} 
+        >
+          <RiResetLeftFill className="mr-3" />
+          Reset Game
+        </button>
       </div>
     </>
   );
