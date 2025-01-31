@@ -1,11 +1,23 @@
 const Card = ({ card, onClick, flipped }) => {
   return (
     <div
-      className="w-20 h-20 md:w-24 md:h-24 bg-blue-400 flex items-center justify-center cursor-pointer border rounded"
+      className="card w-20 h-20 md:w-24 md:h-24 cursor-pointer perspective"
       onClick={onClick}
     >
-      {flipped && <img src={card.url} alt="Animal" className="w-full h-full object-cover rounded" />}
+      <div
+        className={`card-inner w-full h-full relative transition-transform duration-500 transform-style-3d ${
+          flipped ? "rotate-y-180" : ""
+        }`}
+      >
+        <div className="card-front absolute w-full h-full bg-blue-400 flex items-center justify-center border rounded-lg backface-hidden">
+          <span className="text-white text-2xl font-bold">?</span>
+        </div>
+        <div className="card-back absolute w-full h-full bg-white flex items-center justify-center border rounded-lg backface-hidden transform rotate-y-180">
+          <img src={card.url} alt="Animal" className="w-full h-full object-cover rounded-lg" />
+        </div>
+      </div>
     </div>
   );
-  };
-  export default Card;
+};
+
+export default Card;

@@ -15,6 +15,7 @@ const MemoryGame = () => {
   const [username, setUsername] = useState(localStorage.getItem("username") || "");
   const [showModal, setShowModal] = useState(!username);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [isChecking, setIsChecking] = useState(false);
   const jsConfetti = new JSConfetti();
 
   useEffect(() => {
@@ -46,16 +47,18 @@ const MemoryGame = () => {
     setFlippedCards(newFlippedCards);
 
     if (newFlippedCards.length === 2) {
+      setIsChecking(true);
       const [firstIndex, secondIndex] = newFlippedCards;
       if (cards[firstIndex].url === cards[secondIndex].url) {
         setMatchedCards([...matchedCards, firstIndex, secondIndex]);
         setSuccesses(successes + 1);
       } else {
         setErrors(errors + 1);
-        setTimeout(() => setFlippedCards([]), 1000);
       }
-    } else {
-      setTimeout(() => setFlippedCards([]), 1000);
+      setTimeout(() => {
+        setFlippedCards([]);
+        setIsChecking(false);
+      }, 1000);
     }
   };
 
@@ -89,7 +92,7 @@ const MemoryGame = () => {
           successes={successes}
           username={username}
         />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
           {cards.map((card, index) => (
             <Card 
               key={card.id} 
