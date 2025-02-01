@@ -7,7 +7,6 @@ Este proyecto es un juego de memoria desarrollado con React y Vite. Proporciona 
 - React
 - Vite
 - Tailwind CSS
-- React Testing Library & Jest
 - JS Confetti
 
 ## Características
@@ -18,7 +17,6 @@ Este proyecto es un juego de memoria desarrollado con React y Vite. Proporciona 
 - Animación de volteo de cartas.
 - Efecto de confeti al ganar.
 - Responsive design.
-- Pruebas con Jest y React Testing Library.
 
 ## Instalación y Ejecución en Local
 
