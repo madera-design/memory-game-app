@@ -1,4 +1,5 @@
 import { GiAnimalSkull } from "react-icons/gi";
+import backgroundImageCard from "./assets/img/cuadro.png";
 
 const Card = ({ card, onClick, flipped }) => {
   return (
@@ -11,7 +12,10 @@ const Card = ({ card, onClick, flipped }) => {
           flipped ? "rotate-y-180" : ""
         }`}
       >
-        <div className="card-front absolute w-full h-full bg-[#cc7a37] flex items-center justify-center border rounded-lg backface-hidden">
+        <div 
+          className="card-front absolute w-full h-full bg-[#cc7a37] flex items-center justify-center border rounded-lg backface-hidden bg-cover"
+          style={{ backgroundImage: `url(${backgroundImageCard})`}}
+        >
           {/* <span className="text-white text-3xl font-bold">?</span> */}
           <GiAnimalSkull className="text-white text-3xl font-bold" />
         </div>

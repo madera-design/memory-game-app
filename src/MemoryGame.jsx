@@ -87,9 +87,11 @@ const MemoryGame = () => {
 
   return (
     <>
-      <div className="min-h-screen w-full flex flex-col items-center p-4 bg-cover bg-fixed bg-no-repeat" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: "100% 100%" }}>
+      <div 
+        className="min-h-screen w-full flex flex-col items-center p-4 bg-cover bg-fixed bg-no-repeat" 
+        style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: "100% 100%" }}>
         <div className="flex items-center justify-center">
-          <img src={title} alt="title" class="w-[90%] md:w-1/4" />
+          <img src={title} alt="title" className="w-[90%] md:w-1/4" />
         </div>
         <Scoreboard 
           errors={errors} 
