@@ -78,11 +78,11 @@ const MemoryGame = () => {
     setFlippedCards([]);
     setMatchedCards([]);
     setErrors(0);
-    setSuccesses(0);
+    setMatches(0);
     setUsername("");
-    fetchImages();
     localStorage.removeItem("username");
     setShowModal(true);
+    fetchImages();
   };
 
   return (

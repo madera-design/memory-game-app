@@ -14,8 +14,8 @@ const NameModal = ({ setUsername, setShowModal }) => {
 
   return (
   <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center p-4">
-    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
-      <h2 className="text-lg font-bold mb-4 text-center">Enter your name</h2>
+    <div className="bg-orange-600 p-6 rounded-lg shadow-lg inline-block text-center">
+      <h2 className="text-yellow-300 drop-shadow-[3px_3px_0px_#a64d00] font-bold text-4xl break-words whitespace-normal mb-5">Enter your name</h2>
       <input
         type="text"
         value={name}
@@ -24,7 +24,7 @@ const NameModal = ({ setUsername, setShowModal }) => {
         placeholder="Your name"
       />
       <button 
-        className="bg-blue-500 text-white py-2 rounded w-full flex items-center justify-center"
+        className="bg-[#cc7a37] py-2 rounded w-full flex items-center justify-center text-white"
         onClick={handleSave} 
       >
         Let's play
