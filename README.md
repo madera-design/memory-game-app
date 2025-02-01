@@ -31,7 +31,7 @@ Para ejecutar el proyecto en tu máquina local, sigue estos pasos:
 
 2. Accede al directorio del proyecto:
    ```sh
-   cd memory-game
+   cd memory-game-app
    ```
 
 3. Instala las dependencias:
