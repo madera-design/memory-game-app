@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
-import Scoreboard from "./Scoreboard";
-import NameModal from "./NameModal";
-import Congratulations from "./Congratulations";
+import Card from "../components/Card";
+import Scoreboard from "../components/Scoreboard";
+import NameModal from "../components/NameModal";
+import Congratulations from "../components/Congratulations";
 import JSConfetti from "js-confetti";
 import { RiResetLeftFill } from "react-icons/ri";
-import backgroundImage from "./assets/img/5371964.jpg";
-import title from "./assets/img/titulo.png";
+import backgroundImage from "../assets/img/5371964.jpg";
+import title from "../assets/img/titulo.png";
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import MemoryGame from './MemoryGame';
+import MemoryGame from '../layouts/MemoryGame';
 import '@testing-library/jest-dom/extend-expect';
 
 // Mock de fetch

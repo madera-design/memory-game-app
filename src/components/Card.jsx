@@ -1,5 +1,5 @@
 import { GiAnimalSkull } from "react-icons/gi";
-import backgroundImageCard from "./assets/img/cuadro.png";
+import backgroundImageCard from "../assets/img/cuadro.png";
 
 const Card = ({ card, onClick, flipped }) => {
   return (
